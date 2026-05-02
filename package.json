@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crossterm-system-theme": "^0.3.3"
+    "crossterm-system-theme": "^0.4.1"
   },
   "devDependencies": {
     "@mariozechner/pi-coding-agent": "^0.65.2",
