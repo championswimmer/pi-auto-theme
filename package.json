@@ -1,7 +1,7 @@
 {
   "name": "pi-auto-theme",
   "version": "1.0.0",
-  "description": "",
+  "description": "Auto-sync pi theme with OS appearance",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -10,6 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
   "dependencies": {
     "crossterm-system-theme": "^0.3.3"
   },
