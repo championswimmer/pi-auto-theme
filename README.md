@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/pi-auto-theme.svg)](https://www.npmjs.com/package/pi-auto-theme)
 
-A simple extension for the [pi coding agent](https://github.com/badlogic/pi-mono) that automatically changes the theme from dark to light (and vice versa) based on the theme of your operating system.
+A simple extension for the [pi coding agent](https://github.com/earendil-works/pi-mono) that automatically changes the theme from dark to light (and vice versa) based on the theme of your operating system.
 
 ![pi-auto-theme demo](./pi-theme.gif)
 
@@ -11,12 +11,13 @@ A simple extension for the [pi coding agent](https://github.com/badlogic/pi-mono
 - **Instant Reactions**: This extension does **NOT** depend on 'polling' every N seconds. Instead, it uses [crossterm-system-theme](https://github.com/championswimmer/crossterm-system-theme) with a native listener for theme changes, allowing it to react to OS-level theme changes instantly. 
 - *(Note: It does fall back to a 3-second poll in certain Linux desktop environments if it cannot find a way to listen natively, but this rarely happens.)*
 - **No Clutter**: This pi extension is lightweight. It adds a single `/theme` command to allow manual overrides and custom theme mappings.
+- **Native Theme Picker**: Choose from `light`, `dark`, and installed pi themes using a pi-native selector with filtering, navigation, and save/cancel keybindings.
 - **Custom Theme Mapping**: Map OS light/dark appearance to any pi theme, e.g. `catppuccin-latte` for light and `catppuccin-macchiato` for dark.
 - **Commands**: 
+  - `/theme` or `/theme config`: Opens the theme mapping picker.
   - `/theme auto`: Syncs the theme with your OS natively.
   - `/theme dark`: Overrides auto-sync and forces the configured dark theme.
   - `/theme light`: Overrides auto-sync and forces the configured light theme.
-  - `/theme config`: Prompts for light and dark theme names, then saves them.
   - `/theme reset`: Removes custom mapping and returns to `light` / `dark`.
 
 ## Installation
@@ -47,12 +48,13 @@ pi -e ./index.ts
 
 ## Configuration
 
-Run `/theme config` and enter any installed pi theme names:
+Run `/theme` or `/theme config` to open the picker:
 
-```text
-Light theme: catppuccin-latte
-Dark theme: catppuccin-macchiato
-```
+- `↑` / `↓`: move between Light theme and Dark theme
+- `Enter`: open the theme selector
+- Type in the selector to filter installed themes
+- `Ctrl+S`: save the mapping
+- `Esc`: cancel or go back
 
 The mapping is stored at `~/.pi/agent/pi-auto-theme.json`. If you reset to the defaults, the file is removed.
 
