@@ -214,13 +214,13 @@ class ThemeConfigPicker implements Component {
     const selected = CONFIG_ROWS[this.selectedIndex]!;
     return [
       truncateToWidth(this.style.title("Theme Configuration"), width),
-      truncateToWidth(this.style.muted("Auto theme mapping. ctrl+s to save."), width),
+      truncateToWidth(this.style.muted("Auto theme mapping. Ctrl+S to save."), width),
       "",
       ...CONFIG_ROWS.map((row, index) => this.renderRow(row, index === this.selectedIndex, width)),
       "",
       truncateToWidth(this.style.muted(`  ${selected.label}: ${selected.description}`), width),
       "",
-      truncateToWidth(this.style.muted("  enter choose · ctrl+s save · esc cancel"), width),
+      truncateToWidth(this.style.muted("  Enter choose · Ctrl+S save · Esc cancel"), width),
     ];
   }
 
