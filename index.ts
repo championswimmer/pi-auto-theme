@@ -137,13 +137,13 @@ class ThemeSubmenu implements Component {
     const title = this.query ? `Search: ${this.query}` : "Theme Selection";
     return [
       truncateToWidth(title, width),
-      truncateToWidth("Type to filter. enter to choose.", width),
+      truncateToWidth("Type to filter. Enter to choose.", width),
       "",
       ">",
       "",
       ...this.selectList.render(width),
       "",
-      truncateToWidth("  enter choose · type filter · backspace delete · esc back", width),
+      truncateToWidth("  Enter choose · type filter · Backspace delete · Esc back", width),
     ];
   }
 
@@ -389,14 +389,14 @@ export default function (pi: ExtensionAPI) {
           ctx.ui.notify(`Theme set to auto (${config.lightTheme} / ${config.darkTheme})`, "info");
         }
       } else if (arg === "light" || arg === "dark") {
-        currentMode = arg;
-        stopAutoMode();
         if (!canManageThemes(ctx)) {
           ctx.ui.notify("Theme switching is unavailable in this pi mode.", "error");
           return;
         }
         const theme = targetTheme(config, arg);
         if (setTheme(ctx, theme)) {
+          currentMode = arg;
+          stopAutoMode();
           ctx.ui.notify(`Theme set to ${theme}`, "info");
         }
       } else if (arg === "" || arg === "config") {
